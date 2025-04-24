@@ -21,16 +21,11 @@
 
 ### Scenario #2: Login to Google Account
 
-1. Go to [Youtube.com](https://www.youtube.com/) and verify correct page title.
-2. Click on the "Sign In" button.
-3. Enter the email and click "Next" button.
-4. Enter the password and click "Next" button.
-5. Click the "Trending" button in the Explore section.
-6. Switch to "Music" tab.
-7. Click on the 10th video.
-8. Sort the comments by "Newest first".
-9. Enter comment and submit!
-10. Verify that the comment appears first in the list.
+1. Go to [Google Account Signin](https://accounts.google.com/) page.
+2. Enter the email and click "Next" button.
+3. Enter the password and click "Next" button.
+4. Open the Personal info page
+5. Verify log in with correct email.
 
 
 ## Test Run
@@ -72,6 +67,10 @@ mvn clean test -Denv={dev,qa} -Dbrowser={browser} -D"cucumber.filter.tags={tag}"
 - There is no code duplication at all.
 - Inner implementation of PO is hidden from tests.
 - Naming and Code Conventions should be followed.
+- At least one test should use "Scenario Outline" keyword and “Examples:” section.
+- Apply “Background” keyword for preconditions/recurrent steps.
+- Use filtering/regular expressions in Gherkin step definitions for parametrization and flexibility.
+
 
 
 

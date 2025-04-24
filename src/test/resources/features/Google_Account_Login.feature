@@ -5,7 +5,8 @@ Feature: Google Account Login
     Given The user is on the Google Account SignIn page
     When The user submits the valid email: "<Email>"
     And The user submits the valid password: "<Password>"
-    Then The user should be logged in to the Google account with email: "<Email>"
+    And The user opens the Personal Info page
+    Then The user should be logged in to the Google Account with email: "<Email>"
 
     Examples:
       | Email                    | Password                    |

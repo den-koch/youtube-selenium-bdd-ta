@@ -23,6 +23,7 @@ public class GoogleSteps {
     private UserTestData userTestData;
 
     private GoogleLoginPage googleLoginPage;
+    private GooglePersonalInfoPage googlePersonalInfoPage;
 
     private final ThreadLocal<WebDriver> driver = DriverManager.getDriver();
 
@@ -61,11 +62,14 @@ public class GoogleSteps {
         googleLoginPage.clickPasswordNextButton();
     }
 
-    @Then("The user should be logged in to the Google account with email: {string}")
-    public void userShouldBeLoggedInToTheGoogleAccountWithEmail(String email) {
-        GooglePersonalInfoPage googlePersonalInfoPage = new GoogleSideMenuPage(driver.get())
+    @When("The user opens the Personal Info page")
+    public void userOpensThePersonalInfoPage() {
+        googlePersonalInfoPage = new GoogleSideMenuPage(driver.get())
                 .clickPersonalInfoButton();
+    }
 
+    @Then("The user should be logged in to the Google Account with email: {string}")
+    public void userShouldBeLoggedInToTheGoogleAccountWithEmail(String email) {
         String actualAccountEmail = googlePersonalInfoPage.getAccountEmailText();
         Assert.assertEquals(actualAccountEmail, email, "Google account email doesn't match");
     }
